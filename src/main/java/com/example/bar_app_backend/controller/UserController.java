@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")  // Optionnel, mais pratique pour regrouper les endpoints
+@RequestMapping("/api")
 public class UserController {
 
     private final UserService userService;

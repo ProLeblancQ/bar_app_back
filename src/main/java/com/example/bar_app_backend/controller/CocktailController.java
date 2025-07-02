@@ -17,7 +17,11 @@ public class CocktailController {
     }
 
     @GetMapping("/cocktails")
-    public List<Cocktail> getAllCocktails() {
-        return cocktailService.getAllCocktails();
+    public List<Cocktail> getAllCocktails(@RequestParam(required = false) Integer categoryId) {
+        if (categoryId != null) {
+            return cocktailService.getCocktailsByCategoryId(categoryId);
+        } else {
+            return cocktailService.getAllCocktails();
+        }
     }
 }

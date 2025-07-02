@@ -18,4 +18,9 @@ public class CocktailService {
     public List<Cocktail> getAllCocktails() {
         return cocktailRepository.findAll();
     }
+
+    // Cette méthode utilise le repository pour le filtrage
+    public List<Cocktail> getCocktailsByCategoryId(Integer categoryId) {
+        return cocktailRepository.findByCategoryId(categoryId);
+    }
 }
