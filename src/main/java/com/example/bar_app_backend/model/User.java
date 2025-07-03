@@ -1,14 +1,16 @@
+// src/main/java/com/example/bar_app_backend/model/User.java
 package com.example.bar_app_backend.model;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users") // Assure-toi que le nom de la table est bien "users"
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "user_id") // <-- AJOUTE ou MODIFIE cette ligne
+    private Long userId; // <-- CHANGE le nom du champ en 'userId'
 
     private String name;
 
@@ -29,17 +31,16 @@ public class User {
         this.role = role;
     }
 
-    // Getters et Setters
-
-    public Long getId() {
-        return id;
+    // Getters et Setters pour userId
+    public Long getUserId() { // <-- CHANGE le nom de la méthode
+        return this.userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserId(Long userId) { // <-- CHANGE le nom de la méthode et du paramètre
+        this.userId = userId;
     }
 
-    // reste identique
+    // Getters et Setters restants (ils étaient corrects pour les autres champs)
 
     public String getName() {
         return name;

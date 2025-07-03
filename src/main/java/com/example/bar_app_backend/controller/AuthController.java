@@ -1,3 +1,4 @@
+// src/main/java/com/example/bar_app_backend/controller/AuthController.java
 package com.example.bar_app_backend.controller;
 
 import com.example.bar_app_backend.model.User;
@@ -39,13 +40,12 @@ public class AuthController {
                 .map(user -> ResponseEntity.ok(Map.of(
                                 "message", "Connexion réussie",
                                 "user", Map.of(
-                                        "id", user.getId(),
+                                        "id", user.getUserId(), // <--- CORRECTED: Use getUserId() here
                                         "email", user.getEmail(),
                                         "name", user.getName(),
                                         "role", user.getRole()
                                 )
-                        ))
-                )
+                        )))
                 .orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Collections.singletonMap("message", "Identifiants invalides.")));
     }
 }
