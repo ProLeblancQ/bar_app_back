@@ -8,6 +8,5 @@ import java.util.List;
 
 @Repository
 public interface CocktailRepository extends JpaRepository<Cocktail, Long> {
-    // Cette méthode est essentielle pour filtrer par categoryId
     List<Cocktail> findByCategoryId(Integer categoryId);
 }
